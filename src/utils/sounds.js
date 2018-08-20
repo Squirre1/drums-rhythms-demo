@@ -2,7 +2,7 @@
 
 import { average, ejectBeatsFromFreqArray } from './index'
 
-AudioContext = window.AudioContext || window.webkitAudioContext
+var AudioContext = window.AudioContext || window.webkitAudioContext || false; 
 
 export const getSoundBeats = (soundUrl) => new Promise((resolve) => {
   const audio = new Audio()

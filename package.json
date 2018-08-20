@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/Squirre1/drums-rhythms-demo"
   },
-  "homepage": "https://drums-rhythms-demo.github.io/",
+  "homepage": "https://squirre1.github.io/drums-rhythms-demo/",
   "private": true,
   "dependencies": {
     "antd": "3.8.0",
