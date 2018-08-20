@@ -1,0 +1,72 @@
+$square-width: 100px;
+$beat-time: 2.8s;
+$strip-time: $beat-time / 4;
+
+
+$color-deep-blue: #34495e;
+$color-square: #ecf0f1;
+$color-strip: hsl(0, 98%, 61%);
+
+
+.wrapper {
+    position: relative;
+    height: $square-width;
+    width: $square-width;
+    margin: 40px 20px;
+    border: none;
+}
+
+.square {
+    height: $square-width;
+    width: $square-width;
+    background: $color-square;
+}
+
+.square-disabled {
+  opacity: 0.5;
+}
+
+.strip {
+  position: absolute;
+  background: $color-strip;
+  width: 5px;
+  height: 5px;
+  opacity: 0;
+}
+
+.strip-a {
+  animation: state1-animation $strip-time forwards;
+}
+
+.strip-b {
+  animation: state2-animation $strip-time forwards $strip-time * 1;
+}
+
+.strip-c {
+  animation: state3-animation $strip-time forwards $strip-time * 2;
+}
+
+.strip-d {
+  animation: state4-animation $strip-time forwards $strip-time * 3;
+}
+
+
+@keyframes state1-animation {
+    0% { opacity: 1; top: -10px; left: -10px; }
+    100% { opacity: 1; height: $square-width + 20; top: -10px; left: -10px; }
+}
+
+@keyframes state2-animation {
+    0% { opacity: 1; top: $square-width + 5; left: -10px; }
+    100% { opacity: 1; width: $square-width + 20; top: $square-width + 5; left: -10px; }
+}
+
+@keyframes state3-animation {
+    0% { opacity: 1; top: $square-width + 5; left: $square-width + 5; }
+    100% { opacity: 1; height: $square-width + 20; top: -10px; left: $square-width + 5; }
+}
+
+@keyframes state4-animation { 
+    0% { opacity: 1; top: -10px; left: $square-width + 5; }
+    100% { opacity: 1; width: $square-width + 20; top: -10px; left: -10px; }
+}

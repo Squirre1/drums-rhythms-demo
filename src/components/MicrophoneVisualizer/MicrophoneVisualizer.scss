@@ -1,0 +1,16 @@
+svg{
+  display: block;
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  bottom: 0px;
+  z-index: 1;
+}
+
+path{
+  stroke-linecap: square;
+  stroke: white;
+  stroke-width: 1.2px;
+}

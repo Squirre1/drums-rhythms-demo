@@ -1,0 +1,21 @@
+.message {
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+
+  margin-bottom: 5px;
+}
+
+.pass-results {
+  top: 10px;
+  position: absolute;
+  margin-bottom: 0px;
+
+  .success-message {
+    color: hsl(176, 77%, 35%);
+  }
+  
+  .fail-message {
+    color: hsl(0, 98%, 61%);
+  }
+}

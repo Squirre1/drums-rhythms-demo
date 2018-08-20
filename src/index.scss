@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+  background-color: transparent;
+
+  background: url("./images/back.jpg") no-repeat center center fixed;
+  background-size: cover;
+
+  top: 0;
+  position: absolute;
+
+  min-width: 100%;
+  min-height: 100%;
+
+  .header {
+    color: white;
+  }
+
+  .Content {
+    z-index: 2;
+    padding: 16px 32px;
+
+    .contacts {
+      display: flex;
+      margin-top: 16px;
+      color: white;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+
+      .contacts-button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.react-countdown-clock {
+  display: flex;
+}
+
+.anticon-check-circle {
+  color: hsl(176, 77%, 35%);
+}
+
+.anticon-close-circle {
+  color: hsl(0, 98%, 61%);
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .App {
+    .Content {
+      padding: 16px 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .App {
+    .Content {
+      .contacts {
+        justify-content: center;
+      }
+    }
+  }
+}

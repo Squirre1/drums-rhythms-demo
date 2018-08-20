@@ -1,0 +1,74 @@
+.rhythm {
+  height: 100%;
+  padding: 16px;
+  background-color: white;
+  border: 0.5px solid;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px 0 hsla(0%, 0%, 0%, 0.2);
+
+
+  .rhythm-row {
+    .rhythm-name-row {
+      height: 32px;
+
+      .rhythm-name {
+        font-weight: 700;
+        color: hsl(0, 0%, 17%);
+      }
+    }
+  }
+
+  .attempts {
+    font-weight: 700;
+    color: hsl(176, 77%, 35%);
+  }
+
+  .rhythm-attempts-row {
+    height: 32px;
+    margin-top: 32px;
+  }
+
+  .blocked {
+    font-weight: 700;
+    color: gray;
+  }
+}
+
+.rhythm-done {
+  color: hsl(176, 77%, 35%);
+}
+
+.rhythm-failed {
+  color: hsl(0, 98%, 61%);
+}
+
+.rhythm-disabled {
+  background-color: hsl(255, 99%, 90%);
+  opacity: 0.7;
+}
+
+.rhythm-active {
+  box-shadow: 0 2px 6px 0 hsla(0%, 0%, 0%, 0.2);
+}
+
+@media screen and (max-width: 576px) {
+  .rhythm {
+    margin-bottom: 8px;
+    padding: 8px;
+
+    .rhythm-row {
+      justify-content: space-between;
+    }
+    .rhythm-attempts-row {
+      margin-top: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .rhythm {
+    .rhythm-row {
+      flex-direction: column
+    }
+  }
+}
