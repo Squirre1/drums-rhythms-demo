@@ -27,36 +27,48 @@ class App extends React.Component {
 
     const { playStatus, activeRhythm } = player
 
+    const rhytmExam = beats.length !== 0
+    const equalizerStyle = beats.length !== 0 ? { width: '200px', left: 'auto' } : {}
+    
     return (
       <Row type="flex" justify="center" align="top" className="App">
         <Col xs={22} xl={18} className="Content">
-          <Row className="contacts" display-if={beats.length === 0}>
-            {/*<Button
-              icon="medium"
-              shape="circle"
-              className="contacts-button"
-            />*/}
-            <Button
-              icon="mail"
-              shape="circle"
-              className="contacts-button"
-              onClick={() => { window.location = 'mailto:drums.rhythms.demo@gmail.com?subject=Drums rhythms demo' }}
-            />
-            <Button
-              icon="github"
-              shape="circle"
-              className="contacts-button"
-              onClick={() => { window.location = 'https://github.com/Squirre1/drums-rhythms-demo' }}
-            />
+          <Row type="flex" justify="space-between" align="center" className={!rhytmExam ? 'top' : 'top equalizer-row'}>
+            <Row type={rhytmExam ? 'flex' : ''} justify="center">
+              <MicrophoneVisualizer style={equalizerStyle} />
+            </Row>
+            <Row className="contacts">
+              {/*
+                <Button
+                  icon="medium"
+                  shape="circle"
+                  className="contacts-button"
+                />
+              */}
+              <Row display-if={!rhytmExam}>
+                <Button
+                  icon="mail"
+                  shape="circle"
+                  className="contacts-button"
+                  onClick={() => { window.location = 'mailto:drums.rhythms.demo@gmail.com?subject=Drums rhythms demo' }}
+                />
+                <Button
+                  icon="github"
+                  shape="circle"
+                  className="contacts-button"
+                  onClick={() => { window.location = 'https://github.com/Squirre1/drums-rhythms-demo' }}
+                />
+              </Row>
+            </Row>
           </Row>
 
           <Sound loop playStatus={playStatus} url={activeRhythm.url} />
 
-          <Row display-if={beats.length === 0} type="flex" justify="center">
+          <Row display-if={!rhytmExam} type="flex" justify="center">
             <h1 className="header">Listen the rhythm</h1>
           </Row>
 
-          { beats.length === 0 ? (
+          { !rhytmExam ? (
             <RhythmsList
               player={player}
               rhythms={rhythms}
@@ -72,7 +84,6 @@ class App extends React.Component {
             />
           )}
         </Col>
-        <MicrophoneVisualizer />
       </Row>
     );
   }

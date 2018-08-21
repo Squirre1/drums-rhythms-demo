@@ -11,7 +11,7 @@ class MicrophoneVisualizer extends React.PureComponent {
 
   render() {
     return (
-      <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" style={this.props.style}>
         <defs>
           <mask id="mask">
             <g id="maskGroup" />
@@ -23,7 +23,7 @@ class MicrophoneVisualizer extends React.PureComponent {
             <stop offset="100%" style={{ stopColor: '#050d61', stopOpacity: 1 }} />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)" />
+        <rect x="0" y="0" width="100%" height="100px" fill="url(#gradient)" mask="url(#mask)" />
       </svg>
     )
   }

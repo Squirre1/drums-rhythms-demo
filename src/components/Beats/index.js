@@ -29,14 +29,7 @@ class Beats extends React.PureComponent {
 
     return (
       <Fragment>
-        <Row type="flex" justify="center" align="middle">
-          <Col display-if={beats.length === statusesBeats.length} className="pass-results">
-            <div className={`message ${rhythmPassed ? 'success-message' : 'fail-message'}`}>
-              {rhythmPassed ? 'LET\'S ROCK' : 'OH, DAMN IT'}
-            </div>
-          </Col>
-        </Row>
-        <Row type="flex" justify="center" align="middle">
+        <Row type="flex" justify="center" align="middle" className="beats">
           { beats.map((beat, index) => (
             <Col key={index}>
               <Beat beat={beat} checkBeat={this.checkBeat(index)} />
