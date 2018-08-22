@@ -37,10 +37,28 @@
       align-items: center;
       justify-content: flex-end;
 
+      .buttons-row {
+        :last-child {
+          margin-right: 0px;
+        }
+      }
+
       .contacts-button {
         margin-right: 10px;
       }
     }
+  }
+}
+
+.helpStep {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .stepText {
+    margin-bottom: 5px;
+    max-width: 285px;
   }
 }
 
@@ -54,6 +72,14 @@
 
 .anticon-close-circle {
   color: hsl(0, 98%, 61%);
+}
+
+.ant-popover-inner-content {
+  padding: 8px 13px;
+
+  :last-child {
+    margin-bottom: 0px;
+  }
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
