@@ -33,31 +33,33 @@ export const compareBeats = (beats1, beats2) => {
   return timeDifference < (beats2.length / 4) + 1 ? 'passed' : 'failed'
 }
 
-export const ejectBeatsFromFreqArray = (arr) => {
-  const splined = []
-  const uniqTimeArr = uniqBy(prop('time'), arr)
+// empirically
+const putEveryN = (n) => (
+  (acc, r, index) => (
+    (index % n === 0) ? ({ xs: [...acc.xs, r.time], ys: [...acc.ys, r.value] }) : acc
+  )
+)
 
-  // empirically
-  const xs = uniqTimeArr.reduce((acc, r, index) => (index % 8 === 0) ? [...acc, r.time] : acc, [])
-  const ys = uniqTimeArr.reduce((acc, r, index) => (index % 8 === 0) ? [...acc, r.value] : acc, [])
+const findPeak = (acc, point, i, arr) => {
 
-  for (let i = 0; i < xs.length; i += 1) {
-    splined.push({ time: xs[i], value: spline(xs[i], xs, ys) });
+  if (arr[i - 1] && arr[i + 1]) {
+
+    const notExtraNoise = arr[i].value > CLAP_KNOCK_THRESHOLD
+    const isPeak = arr[i - 1].value < arr[i].value && arr[i + 1].value < arr[i].value
+
+    return (notExtraNoise && isPeak) ? [...acc, arr[i]] : acc
   }
 
-  const beats = []
+  return acc
+}
 
-  splined.forEach((value, i) => {
-    if (splined[i - 1] && splined[i + 1]) {
-      if (splined[i - 1].value < splined[i].value && splined[i + 1].value < splined[i].value) {
-        if (splined[i].value > CLAP_KNOCK_THRESHOLD) {
-          beats.push(splined[i])
-        }
-      }
-    }
-  })
+export const ejectBeatsFromFreqArray = (arr) => {
+  const uniqTimeArr = uniqBy(prop('time'), arr)
 
-  return beats
+  const { xs, ys } = uniqTimeArr.reduce(putEveryN(8), { xs: [], ys: [] })
+  const splined = xs.map((time) => ({ time, value: spline(time, xs, ys) }))
+
+  return splined.reduce(findPeak, [])
 }
 
 export { getSoundBeats, getStreamBeats, drawMicrophoneSpectrum }
