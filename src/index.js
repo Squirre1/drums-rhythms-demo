@@ -18,20 +18,20 @@ const guide = (
   <div>
     <div className="helpStep">
       <div className="stepText">
-        1) Check that your microphone enabled and you <b>don't see extra interferences</b>
+        1) Check that your microphone is enabled and you <b>don't see extra interferences</b>
       </div>
     </div>
     <div className="helpStep">
       <div className="stepText">2) Listen active rhythm, clicked by play.</div>
     </div>
     <div className="helpStep">
-      <div className="stepText">3) Push <b>I'M READY</b> when you're ready to repeat it. You must try to <b>do it on the beat.</b></div>
+      <div className="stepText">3) Push <b>I'M READY</b> when you're ready to repeat it. You should <b>do it on the beat.</b></div>
     </div>
     <div className="helpStep">
       <div className="stepText">4) Repeat rhythm as best you can <b>four time in a row</b>. Just clap, hit the drum or table</div>
     </div>
     <div className="helpStep">
-      <div className="stepText">5) If you done it, take the next rhythm.</div>
+      <div className="stepText">5) If you do that, take the next rhythm.</div>
     </div>
   </div>
 );
@@ -60,19 +60,18 @@ class App extends React.Component {
               <MicrophoneVisualizer style={equalizerStyle} />
             </Row>
             <Row className="contacts">
-              {/*
-                <Button
-                  icon="medium"
-                  shape="circle"
-                  className="contacts-button"
-                />
-              */}
               <Row display-if={!rhytmExam} className="buttons-row">
                 <Button
                   icon="mail"
                   shape="circle"
                   className="contacts-button"
                   onClick={() => { window.location = 'mailto:drums.rhythms.demo@gmail.com?subject=Drums rhythms demo' }}
+                />
+                <Button
+                  icon="medium"
+                  shape="circle"
+                  className="contacts-button"
+                  onClick={() => { window.location = 'https://medium.com/@kak60g/sense-of-rhythm-with-web-audio-api-e7f99c631d5f' }}
                 />
                 <Button
                   icon="github"
